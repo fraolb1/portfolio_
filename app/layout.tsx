@@ -14,11 +14,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-eyuels-projects.vercel.app/"),
   keywords: ["portfolio","developer","front-end"],
   title:{
-    default: "Eyuel",
-    template:'%s | Eyuel'
+    default: "Portfolio",
+    template:'%s | Portfolio'
   },
   openGraph:{
-    description: "Learn to code && have fun doing it :)"
+    title: 'Portfolio',
+    description: "Learn to code && have fun doing it :)",
+    url: 'https://portfolio-eyuels-projects.vercel.app/',
+    locale:'en_us',
+    type:'website'
   }
 };
 
