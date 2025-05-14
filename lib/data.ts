@@ -62,6 +62,7 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    id:'fbbhnrffeirne89',
     title: "HealthSync",
     description:
       `An AI-powered platform that connects patients with verified doctors.
@@ -70,6 +71,7 @@ export const projectsData = [
     imageUrl: healthSyncImg,
   },
   {
+    id:'dgvbdsrbebsduxx123',
     title: "oneHR",
     description:
       "oneHR encompasses all HR functions in an automated and streamlined manner. Worked on the project as a fullstack for 2 years.",
@@ -77,6 +79,7 @@ export const projectsData = [
     imageUrl: oneHRImg,
   },
   {
+    id:'cvvdkvjnektei234kgjn',
     title: "Fund Tracker",
     description:
       "Fund Tracker helps you manage funds with complete transparency, showing exactly where each penny is allocated through milestone-based disbursement workflows. Worked on it for 6 months.",
