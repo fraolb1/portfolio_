@@ -22,7 +22,14 @@ export const metadata: Metadata = {
     description: "Learn to code && have fun doing it :)",
     url: 'https://portfolio-eyuels-projects.vercel.app/',
     locale:'en_us',
-    type:'website'
+    type:'website',
+    images:[
+      {
+        url: '',
+        width:800,
+        height:600,
+      }
+    ]
   }
 };
 

@@ -31,7 +31,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/profile.jpg"
+              src="/profile.png"
               alt="Ricardo portrait"
               width="192"
               height="192"
