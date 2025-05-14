@@ -1,7 +1,13 @@
 import { notFound } from "next/navigation";
 import { projectsData } from "@/lib/data";
 import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
-import { SiNextdotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiMongodb,
+  SiTailwindcss,
+  SiTypescript,
+  SiFirebase,
+} from "react-icons/si";
 
 const iconMap: Partial<Record<string, JSX.Element>> = {
   React: <FaReact className="text-[#61DAFB]" />,
@@ -10,6 +16,8 @@ const iconMap: Partial<Record<string, JSX.Element>> = {
   MongoDB: <SiMongodb className="text-[#4DB33D]" />,
   Tailwind: <SiTailwindcss className="text-[#38B2AC]" />,
   Python: <FaPython className="text-[#FFD43B]" />,
+  TypeScript: <SiTypescript className="text-[#4264ff]" />,
+  Firebase: <SiFirebase className="text-[#f8ab39]" />,
 };
 
 export async function generateStaticParams() {
