@@ -49,7 +49,7 @@ export default function Project({
             ))}
           </ul>
 
-          <ViewDetailsButton href={`/project/${id}`} className="mt-4  " />
+          <ViewDetailsButton href={`/projects/${id}`} className="mt-4  " />
         </div>
 
         <Image
