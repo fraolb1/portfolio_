@@ -1,5 +1,16 @@
 import { notFound } from "next/navigation";
 import { projectsData } from "@/lib/data";
+import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
+import { SiNextdotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
+
+const iconMap: Partial<Record<string, JSX.Element>> = {
+  React: <FaReact className="text-[#61DAFB]" />,
+  "Next.js": <SiNextdotjs className="text-white" />,
+  Express: <FaNodeJs className="text-[#68A063]" />,
+  MongoDB: <SiMongodb className="text-[#4DB33D]" />,
+  Tailwind: <SiTailwindcss className="text-[#38B2AC]" />,
+  Python: <FaPython className="text-[#FFD43B]" />,
+};
 
 export async function generateStaticParams() {
   return projectsData.map((p) => ({ id: p.id }));
@@ -15,26 +26,36 @@ export default function ProjectDetailPage({
   if (!project) return notFound();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 p-8 max-w-3xl mx-auto">
-      <img
-        src={project.imageUrl.src}
-        alt={project.title}
-        className="w-full h-auto rounded-xl mb-8 border border-gray-700"
-      />
-      <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-      <p className="text-gray-300 mb-6 leading-relaxed">
-        {project.description}
-      </p>
-      <div>
-        <div className="flex gap-2 flex-wrap">
-          {project.tags.map((kw) => (
-            <span
-              key={kw}
-              className="bg-gray-700 text-gray-200 text-xs px-3 py-1 rounded-full"
-            >
-              {kw}
-            </span>
-          ))}
+    <div className="min-h-screen bg-gray-900 text-gray-100 p-4 sm:p-8">
+      <div className="max-w-4xl mx-auto">
+        <img
+          src={project.imageUrl.src}
+          alt={project.title}
+          className="w-full h-auto rounded-2xl mb-8 border border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+        />
+
+        <div className="space-y-6">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            {project.title}
+          </h1>
+
+          <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">
+            {project.description}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap gap-3">
+              {project.tags.map((tag) => (
+                <div
+                  key={tag}
+                  className="bg-gray-800 text-gray-200 px-4 py-2 rounded-full text-sm font-medium border border-gray-700 hover:border-gray-600 transition-colors duration-300 flex items-center gap-2"
+                >
+                  {iconMap[tag] ?? null}
+                  <span>{tag}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
