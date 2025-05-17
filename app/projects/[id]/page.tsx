@@ -11,7 +11,7 @@ import {
 
 const iconMap: Partial<Record<string, JSX.Element>> = {
   React: <FaReact className="text-[#61DAFB]" />,
-  "Next.js": <SiNextdotjs className="text-white" />,
+  "Next.js": <SiNextdotjs className="text-black dark:text-white" />,
   Express: <FaNodeJs className="text-[#68A063]" />,
   MongoDB: <SiMongodb className="text-[#4DB33D]" />,
   Tailwind: <SiTailwindcss className="text-[#38B2AC]" />,
@@ -34,12 +34,12 @@ export default function ProjectDetailPage({
   if (!project) return notFound();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 p-4 sm:p-8">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 p-4 sm:p-8 transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
         <img
           src={project.imageUrl.src}
           alt={project.title}
-          className="w-full h-auto rounded-2xl mb-8 border border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+          className="w-full h-auto rounded-2xl mb-8 border border-gray-300 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
         />
 
         <div className="space-y-6">
@@ -47,7 +47,7 @@ export default function ProjectDetailPage({
             {project.title}
           </h1>
 
-          <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">
+          <div className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed whitespace-pre-line">
             {project.description}
           </div>
 
@@ -56,7 +56,7 @@ export default function ProjectDetailPage({
               {project.tags.map((tag) => (
                 <div
                   key={tag}
-                  className="bg-gray-800 text-gray-200 px-4 py-2 rounded-full text-sm font-medium border border-gray-700 hover:border-gray-600 transition-colors duration-300 flex items-center gap-2"
+                  className="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 transition-colors duration-300 flex items-center gap-2"
                 >
                   {iconMap[tag] ?? null}
                   <span>{tag}</span>

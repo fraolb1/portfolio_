@@ -1,15 +1,34 @@
 "use client";
 
 import React from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { links } from "@/lib/data";
-import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+
+  const handleClick = (
+    hash: string,
+    name: "Home" | "About" | "Projects" | "Skills" | "Experience" | "Contact"
+  ) => {
+    setActiveSection(name);
+    setTimeOfLastClick(Date.now());
+
+    if (pathname !== "/") {
+      router.push(`/${hash}`);
+    } else {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <header className="z-[999] relative">
@@ -28,7 +47,8 @@ export default function Header() {
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
             >
-              <Link
+              <button
+                onClick={() => handleClick(link.hash, link.name)}
                 className={clsx(
                   "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
                   {
@@ -36,11 +56,6 @@ export default function Header() {
                       activeSection === link.name,
                   }
                 )}
-                href={link.hash}
-                onClick={() => {
-                  setActiveSection(link.name);
-                  setTimeOfLastClick(Date.now());
-                }}
               >
                 {link.name}
 
@@ -55,7 +70,7 @@ export default function Header() {
                     }}
                   ></motion.span>
                 )}
-              </Link>
+              </button>
             </motion.li>
           ))}
         </ul>
