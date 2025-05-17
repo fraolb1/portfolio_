@@ -13,7 +13,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-eyuels-projects.vercel.app/"),
+  metadataBase: new URL("https://portfolio-hazel-chi-46.vercel.app/"),
   title: {
     default: "Portfolio",
     template: "%s | Portfolio",
@@ -34,12 +34,12 @@ export const metadata: Metadata = {
     title: "Portfolio",
     description:
       "Front-end developer portfolio — Learn to code & have fun doing it :)",
-    url: "https://portfolio-eyuels-projects.vercel.app/",
+    url: "https://portfolio-hazel-chi-46.vercel.app",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://portfolio-eyuels-projects.vercel.app/og-image.png",
+        url: "https://portfolio-hazel-chi-46.vercel.app/og-image.png",
         width: 800,
         height: 600,
         alt: "Eyuel's Portfolio Preview",
